@@ -7,17 +7,12 @@ const authRoutes = require("./routes/auth");
 const notesRoutes = require("./routes/notes");
 
 const app = express();
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://your-frontend.vercel.app" // replace with actual Vercel URL
-];
-
+// Allow requests from your frontend
 app.use(cors({
-  origin: allowedOrigins,
+  origin: "https://notebook-omega-three.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
-
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
